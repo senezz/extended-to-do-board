@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>To-Do board</h1>
+
+    <div id="board" class="board"></div>
+
+    <div class="add-column-container">
+        <button id="toggle-add-column">Add column</button>
+        <form id="add-column-form" class="add-column-form hidden">
+            <input type="text" id="new-column-title" placeholder="Name column" required>
+            <button type="submit">Add</button>
+            <button type="button" id="cancel-add-column">Cancel</button>
+        </form>
+    </div>
+
+    <template id="column-template">
+        <div class="column" data-id="">
+            <h2 class="column-title" contenteditable="false"></h2>
+            <div class="column-actions">
+                <button class="delete-column">Delete column</button>
+                <button class="sort-by-date">Sort by date ↑</button>
+                <button class="reverse-tasks">Reverse</button>
+            </div>
+            <form class="add-task-form">
+                <input class="add-task-input" type="text" placeholder="New task" required>
+                <button type="submit">Add</button>
+            </form>
+            <div class="tasks-list"></div>
+        </div>
+    </template>
+
+    <template id="task-template">
+        <div class="task" data-id="">
+            <p class="task-text" contenteditable="false"></p>
+            <div class="task-actions">
+                <button class="delete-task">Delete</button>
+                <button class="move-left">←</button>
+                <button class="move-right">→</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
